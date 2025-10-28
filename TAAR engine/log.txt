@@ -1,0 +1,19 @@
+10.21.25 Wolfy
+fixed an issue with the combatant being saved inside the list instead of being saved using the name in the list in CreateCombatant
+worked on the ReadMe
+created classes.py so i have a spot to work on some wierd stuff
+trying to wrap my head arround passing a function as an argument of an object in a class
+
+10.23.25 Wolfy
+merged classes.py into TAAR_Engine.py
+trying to see if I even should have action be classes or not
+    I did make them classes
+ugh I need to update the ReadMe
+    Removed the bad info
+    Adding in the new info is a later me problem :3
+updating the tester seems to require creating a new function to create actions
+
+12.28.25 Wolfy
+creating that new function per me last week
+Figuring out how to refrence an objecct using a list containing its name
+changed the list containing the names of combatants to a dictionary with the name as a key and the combatant as the value
