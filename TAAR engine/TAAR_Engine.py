@@ -20,30 +20,28 @@ class Action:
     
     def __str__(self):
         return f"{self.shell}\n{self.time}"
-    
-#function to create a action
-def createAction(name = "punch", shell=[[["stats", "HP"], baseEffect]], time = 1):
-    name = Action(shell, time)
 
 
 #define combatant class
 class Combatant:
-    def __init__(self, stats, actions, inventory, equipment, traits, team):
+    def __init__(self, stats, actions, inventory, equipment, traits, time, team):
         self.stats = stats
         self.actions = actions
         self.inventory = inventory
         self.equipment = equipment
         self.traits = traits
+        self.time = time
         self.team = team
 
     def __str__(self):
-        return f"{self.stats}\t{self.actions}\t{self.inventory}\t{self.equipment}\t{self.traits}\t{self.team}"
+        return f"{self.stats}\t{self.actions}\t{self.inventory}\t{self.equipment}\t{self.traits}\t{self.time}\t{self.team}"
 
 
-#create a combatant and save its name to a list
-def createCombatant(name = len(combatantDict), team = -1, stats = {"MaxHP":10, "HP":10}, actions = {"punch": createAction}, inventory = {}, equipment = {}, traits = {}):
+def createCombatant(name = len(combatantDict), team = -1, delay = 0, stats = {"MaxHP":10, "HP":10}, actions = {"punch": [[[["target","stats", "HP"], baseEffect]], 1]}, inventory = {}, equipment = {}, traits = {}):
     if name not in combatantDict:
-        combatantDict[name] = Combatant(stats, actions, inventory, equipment, traits, team)
+        for action in actions:
+            actions[action] = Action(actions[action][0], actions[action][1])
+        combatantDict[name] = Combatant(stats, actions, inventory, equipment, traits, delay, team)
     else:
         print("combatant not created, name already exists")
 
@@ -56,4 +54,4 @@ def listAllCombatants(combatantDef = False):
     elif combatantDef == True:
         for combatant in combatantDict.items():
             print(combatant[0], end=" : ")
-            print(combatant[1])
+            print(combatant[1].actions)

@@ -13,7 +13,12 @@ ugh I need to update the ReadMe
     Adding in the new info is a later me problem :3
 updating the tester seems to require creating a new function to create actions
 
-12.28.25 Wolfy
+10.28.25 Wolfy
 creating that new function per me last week
 Figuring out how to refrence an objecct using a list containing its name
 changed the list containing the names of combatants to a dictionary with the name as a key and the combatant as the value
+
+10.30.25 Wolfy
+The ever lasting question of what to work on
+Removed the function I made last week and changed the code in CreateCombatant to create a better resault than having 2 functions
+Need to figure out how to get charecters to print properly now
